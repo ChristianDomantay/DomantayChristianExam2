@@ -37,6 +37,7 @@ Button display;
             {
                 try {
                     saveInternal();
+                    loadInternal();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -111,9 +112,12 @@ Button display;
             String s  = buffer.toString();
              away = s.split("%");
             int count= away.length;
-            fname.setText(away[count-3]);
-            lname.setText(away[count-2]);
-            avg.setText(away[count-1]);
+            if(buffer!=null){
+                fname.setText(away[count-3]);
+                lname.setText(away[count-2]);
+                avg.setText(away[count-1]);
+            }
+
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
